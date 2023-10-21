@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Edit Form</h2>
+    <form action='/student/update/<%= data._id %>' method="post">
+        ID: <br>
+        <input type="text" name="_id" id="studentID" value="<%= data._id %>" readonly> <br>
+        student ID: <br>
+        <input type="text" name="studentID" id="studentID" value="<%= data.studentID %>"> <br>
+        Name: <br>
+        <input type="text" name="name" id="name" value="<%= data.name %>"> <br>
+        Year of study: <br>
+        <select name="year_of_study" id="year_of_study">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select> <br>
+        Email: <br>
+        <input type="text" name="email" id="email" value="<%= data.email %>"> <br>
+        <button class="edit" type="submit">Update student</button>
+
+    </form>
+
+
+
+    <script>
+
+        function edit(studentID) {
+            const confirmEdit = confirm("Are you sure you want to delete this student?");
+            if (confirmEdit) {
+                window.location.href = "/student/edit" + studentID;
+
+            } else {
+                // ผู้ใช้ยกเลิกการลบ ไม่ต้องทำอะไร
+            }
+            
+        }
+        // })
+
+        const studentYOS = '<%= data.year_of_study %>'; // Make sure to use the correct syntax
+
+        // Select the <select> element by its id
+        const selectElement = document.getElementById('year_of_study');
+
+        // Loop through the options and set the selected attribute for the matching value
+        for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value === studentYOS) {
+                selectElement.options[i].selected = true;
+                break; // Stop the loop once a match is found
+            }
+        }
+    </script>
+</body>
+
+</html>

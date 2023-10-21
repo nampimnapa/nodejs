@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+        li {
+            float: left;
+            
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+        h1,h3,h2{
+            padding: 2%;
+            text-align: center;
+        }
+        .h {
+            padding: 0;
+            margin: 0;
+            background-color: pink;
+        }
+        .a{
+            margin: 2%;
+            padding: 5%;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+<div class="h">
+    <% port.forEach(aport=> { %>
+        <h1>
+            <%= aport.name %>
+        </h1>
+        <% }) %>
+            <h3>Student Portfolio</h3>
+        </div>
+           <%- include('./partials/nav.ejs') %>
+            <div class="a">
+            <h2>About Me</h2>
+            <p>I am a passionate and dedicated
+                Computing and Digital Technologies student currently pursuing my bachelor's
+                degree at Khon Kaen University. I have a strong interest in web development
+                and programming.</p></div>
+                <div class="a">
+            <h2>Contact Me</h2>
+            You can reach me at <a href="mailto:">
+                <% port.forEach(aport=> { %>
+                    <%= aport.contact.email %>
+                        <% }) %></a>
+                            Feel free to connect with me on <a href="YYYYY">LinkedIn</a>
+                            <% port.forEach(aport=> { %>
+                                <%= aport.contact.LinkedIn %>
+                                    <% }) %>
+                                        as well.”</div>
+
+
+</body>
+
+</html>
